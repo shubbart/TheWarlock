@@ -12,6 +12,7 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
         public float maxMana;
         public float currentMana;
         public float armorValue;
+        public float baseArmor;
 
         // Attributes
         public int Str, Dex, Con, Int, Wis;
@@ -31,43 +32,54 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
         public float manaRecoveryTimeReset;
 
     }
-
+    
     PlayerSheet player;
 
 	void Start ()
     {
+        // Calculate modifiers based on Attributes
         player.strMod = (player.Str - 10) / 2;
         player.dexMod = (player.Dex - 10) / 2;
         player.conMod = (player.Con - 10) / 2;
         player.intMod = (player.Int - 10) / 2;
         player.wisMod = (player.Wis - 10) / 2;
 
+        // Set maximum health and mana
         player.maxHealth = 20 + player.conMod;
         player.maxMana = 20 + 2 * player.intMod;
 
+        // Set current health and mana to the max at the start of the game
         player.currentHealth = player.maxHealth;
         player.currentMana = player.maxMana;
 
-        player.armorValue = 0;
+        // Base armor value is 0
+        player.baseArmor = 0;
+        // Sets armor value to the base
+        player.armorValue = player.baseArmor;
 
+        // Calculate attack and spell power
         player.attackPower = 1.25f * player.strMod;
         player.spellPower = 1.25f * player.intMod;
 
+        // Calculate attack speed
         player.attackSpeed = player.dexMod;
+
+        // Calculate status effect resistance
         player.statusResistance = player.conMod / 2;
+
+        // Calculate health and mana recovery
         player.healthRecovery = player.conMod * 2;
         player.manaRecovery = player.wisMod * 3;
 
+        // Sets the passive health and mana recovery time.
         player.healthRecoveryTime = 5;
-        player.manaRecoveryTime = 8;
+        player.manaRecoveryTime = 6.5f;
 
-
-
+        // Sets the passive health and mana recovery time reset
         player.healthRecoveryTimeReset = player.healthRecoveryTime;
         player.manaRecoveryTimeReset = player.manaRecoveryTime;
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
         // Passive HP and mana recovery
@@ -85,11 +97,13 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
         }
     }
 
+    // Calculate damage received after armor deduction
     public float DamageMinusArmor(float damageDealt)
     {
         return damageDealt * (1 - player.armorValue/10);
     }
 
+    // Deal damage to the player's health
     public void TakeDamage(float damage)
     {
         float dmg = DamageMinusArmor(damage);
@@ -100,16 +114,19 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
             player.currentHealth -= dmg;
     }
 
+    // Calculate the amount the player will heal
     public float HealingReceived(float heal)
     {
         return heal * player.healingModifier;
     }
 
+    // Apply healing to the player's health
     public void ApplyHealing(float heal)
     {
         player.currentHealth += HealingReceived(heal);
     }
 
+    // Apply passive healing to the player's health
     void PassiveHealtheRecover()
     {
         if (player.currentHealth < player.maxHealth)
@@ -121,6 +138,7 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
         }
     }
 
+    // Apply the passive recovery of mana to the player's mana
     void PassiveManaRecovery()
     {
         if (player.currentMana < player.maxMana)

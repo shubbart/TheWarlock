@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody>();
         floorMask = LayerMask.GetMask("Floor");
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()

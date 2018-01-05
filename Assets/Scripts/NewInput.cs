@@ -19,9 +19,16 @@ public class NewInput : MonoBehaviour
         {
             if (GameInputManager.defaults[i] == KeyCode.Mouse0)
                 assignedText[i].text = "Left Mouse";
-            if (GameInputManager.defaults[i] == KeyCode.Mouse1)
+            else if (GameInputManager.defaults[i] == KeyCode.Mouse1)
                 assignedText[i].text = "Right Mouse";
-            //assignedText[i].text = GameInputManager.defaults[i].ToString();
+            else if (GameInputManager.defaults[i] == KeyCode.Alpha0 || GameInputManager.defaults[i] == KeyCode.Alpha1 || GameInputManager.defaults[i] == KeyCode.Alpha2 || GameInputManager.defaults[i] == KeyCode.Alpha3 || GameInputManager.defaults[i] == KeyCode.Alpha4 || GameInputManager.defaults[i] == KeyCode.Alpha5 || GameInputManager.defaults[i] == KeyCode.Alpha6 || GameInputManager.defaults[i] == KeyCode.Alpha7 || GameInputManager.defaults[i] == KeyCode.Alpha8 || GameInputManager.defaults[i] == KeyCode.Alpha9)
+            {
+                TrimString(GameInputManager.defaults[i].ToString(), i);
+            }
+            else if (GameInputManager.defaults[i] != KeyCode.None)
+                assignedText[i].text = GameInputManager.defaults[i].ToString();
+            else
+                assignedText[i].text = KeyCode.None.ToString();
         }
     }
 
@@ -37,28 +44,31 @@ public class NewInput : MonoBehaviour
                 if (Input.GetKeyDown(kcode))
                 {
                     for(int i = 0; i < GameInputManager.defaults.Length; ++i)
+                    {
+                        // Sets the new key
+                        GameInputManager.defaults[keyIndex] = kcode;
+                        // Sets the text to display the new key
+
+                        for (int j = 0; j < assignedText.Length; ++j)
                         {
-                            // Sets the new key
-                            GameInputManager.defaults[keyIndex] = kcode;
-                            // Sets the text to display the new key
-                            assignedText[keyIndex].text = kcode.ToString();
+                            if (GameInputManager.defaults[j] == KeyCode.Mouse0)
+                                assignedText[j].text = "Left Mouse";
+                            else if (GameInputManager.defaults[j] == KeyCode.Mouse1)
+                                assignedText[j].text = "Right Mouse";
+                            else if (GameInputManager.defaults[j] == KeyCode.Alpha0 || GameInputManager.defaults[j] == KeyCode.Alpha1 || GameInputManager.defaults[j] == KeyCode.Alpha2 || GameInputManager.defaults[j] == KeyCode.Alpha3 || GameInputManager.defaults[j] == KeyCode.Alpha4 || GameInputManager.defaults[j] == KeyCode.Alpha5 || GameInputManager.defaults[j] == KeyCode.Alpha6 || GameInputManager.defaults[j] == KeyCode.Alpha7 || GameInputManager.defaults[j] == KeyCode.Alpha8 || GameInputManager.defaults[j] == KeyCode.Alpha9)
+                            {
+                                TrimString(GameInputManager.defaults[j].ToString(), j);
+                            }
+                            else if (GameInputManager.defaults[j] != KeyCode.None)
+                                assignedText[j].text = GameInputManager.defaults[j].ToString();
+                        }
                             // If the new key is the same as another key, reassigns the old one to none
                             if (kcode == GameInputManager.defaults[i])
-                            {
-                                    GameInputManager.defaults[i] = KeyCode.None;
-                                if (GameInputManager.defaults[i] == KeyCode.Mouse0)
-                                    assignedText[i].text = "Left Mouse";
-                                else if (GameInputManager.defaults[i] == KeyCode.Mouse1)
-                                    assignedText[i].text = "Right Mouse";
-                                else if (GameInputManager.defaults[i] == KeyCode.Alpha0 || GameInputManager.defaults[i] == KeyCode.Alpha1 || GameInputManager.defaults[i] == KeyCode.Alpha2 || GameInputManager.defaults[i] == KeyCode.Alpha3 || GameInputManager.defaults[i] == KeyCode.Alpha4 || GameInputManager.defaults[i] == KeyCode.Alpha5 || GameInputManager.defaults[i] == KeyCode.Alpha6 || GameInputManager.defaults[i] == KeyCode.Alpha7 || GameInputManager.defaults[i] == KeyCode.Alpha8 || GameInputManager.defaults[i] == KeyCode.Alpha9)
-                                {
-                                    String temp = GameInputManager.defaults[i].ToString();
-                                    assignedText[i].text = temp.TrimStart(removeChar);
-                                }
-                                else
-                                    assignedText[i].text = KeyCode.None.ToString();
-                            }
+                        {
+                            GameInputManager.defaults[i] = KeyCode.None;                        
+                            assignedText[i].text = KeyCode.None.ToString();
                         }
+                    }
                     // Resets the definitions
                     GameInputManager.InitializeDictionary();
                     // deactivates the display text
@@ -70,6 +80,12 @@ public class NewInput : MonoBehaviour
         }
     }
 
+    void TrimString(string str, int index)
+    {
+        String temp = str;
+        temp = temp.TrimStart(removeChar);
+        assignedText[index].text = temp;
+    }
     // Sets the keyIndex to the proper index, activates the display text, sets gettingInput to true
     public void NewWeapon1()
     {

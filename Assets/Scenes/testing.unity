@@ -1830,6 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 1980442723}
+  defaultCursor: {fileID: 2800000, guid: c4e3f7db89991a4489f567dee4bbe39f, type: 3}
   setCode: 0
 --- !u!1 &1268699715
 GameObject:

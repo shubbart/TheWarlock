@@ -5,7 +5,13 @@ using UnityEngine;
 public class Hotkeys : MonoBehaviour
 {
     public GameObject menu;
+    public Texture2D defaultCursor;
     public bool setCode;
+
+    private void Start()
+    {
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+    }
 
     private void Update()
     {
@@ -118,11 +124,13 @@ public class Hotkeys : MonoBehaviour
             {
                 Time.timeScale = 0;
                 menu.gameObject.SetActive(true);
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
             else
             {
                 Time.timeScale = 1;
                 menu.gameObject.SetActive(false);
+                Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
             }
         }
     }

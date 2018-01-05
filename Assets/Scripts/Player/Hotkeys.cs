@@ -6,7 +6,6 @@ public class Hotkeys : MonoBehaviour
 {
     public GameObject menu;
     public Texture2D defaultCursor;
-    public bool setCode;
 
     private void Start()
     {
@@ -24,24 +23,8 @@ public class Hotkeys : MonoBehaviour
         Item1();
         Item2();
         PauseGame();
-
-        if(setCode)
-        {
-            SetKeyCode();
-            setCode = false;
-        }
     }
 
-    void SetKeyCode()
-    {
-        Debug.Log(GameInputManager.defaults[0]); // Check the default keymapping
-        GameInputManager.defaults[0] = KeyCode.Alpha0; // Set the new keymapping
-        GameInputManager.InitializeDictionary(); // Initialize the new definitions
-        if(GameInputManager.defaults[0] == KeyCode.Alpha0) // Checks if the keymap change was successful
-            Debug.Log(GameInputManager.defaults[0]); // Display the new keymapping
-        else
-            Debug.Log("Failed");
-    }
 
     void Weapon1()
     {
@@ -102,7 +85,7 @@ public class Hotkeys : MonoBehaviour
         if (GameInputManager.GetKeyUp("Item1"))
         {
             Debug.Log("Item1");
-            // Do spell item 1
+            // Do item effect 1
         }
     }
 
@@ -111,7 +94,7 @@ public class Hotkeys : MonoBehaviour
         if (GameInputManager.GetKeyUp("Item2"))
         {
             Debug.Log("Item2");
-            // Do spell item 2
+            // Do item effect 2
         }
     }
 
@@ -126,6 +109,7 @@ public class Hotkeys : MonoBehaviour
                 menu.gameObject.SetActive(true);
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
+            // Closes menu and resume game
             else
             {
                 Time.timeScale = 1;

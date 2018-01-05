@@ -82,15 +82,4 @@ public class PlayerController : MonoBehaviour
             rbody.MoveRotation(newRotation);
         }
     }
-
-    void mainAttack()
-    {
-        isAttacking = true;
-    }
-
-    void altAttack()
-    {
-
-    }
-
 }

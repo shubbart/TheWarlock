@@ -15,6 +15,7 @@ public class NewInput : MonoBehaviour
 
     private void Start()
     {
+        // Sets the text to display the key code
         for(int i = 0; i < assignedText.Length; ++i)
         {
             if (GameInputManager.defaults[i] == KeyCode.Mouse0)
@@ -48,7 +49,6 @@ public class NewInput : MonoBehaviour
                         // Sets the new key
                         GameInputManager.defaults[keyIndex] = kcode;
                         // Sets the text to display the new key
-
                         for (int j = 0; j < assignedText.Length; ++j)
                         {
                             if (GameInputManager.defaults[j] == KeyCode.Mouse0)

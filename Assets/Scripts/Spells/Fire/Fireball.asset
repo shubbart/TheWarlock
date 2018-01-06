@@ -11,11 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6effc80a7bf82b94b80ad97ab356f245, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  sName: Fireball
-  sSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  sSound: {fileID: 0}
-  sBaseCooldown: 1
-  damage: 1
-  range: 50
-  hitForce: 100
-  color: {r: 1, g: 0, b: 0, a: 1}
+  aName: Fireball
+  aSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  aSound: {fileID: 0}
+  aBaseCooldown: 1
+  aBaseCastTime: 1
+  projectileForce: 500
+  projRbody: {fileID: 54512103274234150, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}

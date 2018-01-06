@@ -18,7 +18,11 @@ public class CoolDown : MonoBehaviour
     private float nextReadyTime;
     private float cdRemaining;
 
-	void Start ()
+    private float castDuration;
+    private float castRemaining;
+
+
+    void Start ()
     {
         Initialize(ability, abilityHolder);
 	}
@@ -31,6 +35,7 @@ public class CoolDown : MonoBehaviour
         myButtonImage.sprite = ability.aSprite;
         darkMask.sprite = ability.aSprite;
         cdDuration = ability.aBaseCooldown;
+        castDuration = ability.aBaseCastTime;
         ability.Initialize(abilityHolder);
         AbilityReady();
     }
@@ -42,7 +47,10 @@ public class CoolDown : MonoBehaviour
         {
             AbilityReady();
             if (GameInputManager.GetKeyDown(abilityButtonAxisName))
-                ButtonTriggered();           
+            {
+                CastAbility();
+                Invoke("ButtonTriggered", castDuration);
+            }
         }
         else CDUpdate();
     }
@@ -61,8 +69,17 @@ public class CoolDown : MonoBehaviour
         darkMask.fillAmount = (cdRemaining / cdDuration);
     }
 
+    private void CastAbility()
+    {       
+        castRemaining -= Time.deltaTime;
+        float roundedCast = Mathf.Round(castRemaining);
+        // text update
+        // mask update
+    }
+
     private void ButtonTriggered()
     {
+        castRemaining = castDuration;
         nextReadyTime = cdDuration + Time.time;
         cdRemaining = cdDuration;
         darkMask.enabled = true;

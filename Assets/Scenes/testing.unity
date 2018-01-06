@@ -198,8 +198,8 @@ MonoBehaviour:
   abilityButtonAxisName: Spell1
   darkMask: {fileID: 1654631396}
   cdTextDisplay: {fileID: 706402489}
-  ability: {fileID: 0}
-  abilityHolder: {fileID: 0}
+  ability: {fileID: 11400000, guid: d7910539a3c10a342b84f47f3d4d28a9, type: 2}
+  abilityHolder: {fileID: 144337228}
 --- !u!82 &7268064
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1083,6 +1083,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284557343}
+--- !u!1001 &296590361
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 967.36115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 292.40668
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -311.71527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &304859408
 GameObject:
   m_ObjectHideFlags: 0

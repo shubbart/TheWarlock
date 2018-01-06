@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "Abilities/SpellAbility")]
-public class SpellAbility : Ability
+[CreateAssetMenu (menuName = "Abilities/SpellProjectileAbility")]
+public class SpellProjectileAbility : Ability
 {
     public float projectileForce = 500f;
     public Rigidbody projRbody;
-    public float hitForce = 100f;
 
     //private ProjectilShootTriggerable launcher;
 

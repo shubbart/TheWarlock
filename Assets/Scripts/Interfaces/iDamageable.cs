@@ -6,4 +6,5 @@ public interface iDamageable
 {
     float DamageMinusArmor(float damageDealt);
     void TakeDamage(float damage);
+    void Die();
 }

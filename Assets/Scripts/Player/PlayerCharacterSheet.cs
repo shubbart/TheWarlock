@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
 {
-    struct PlayerSheet
+    public struct PlayerSheet
     {
         public string name;
         public float maxHealth;
@@ -33,7 +33,7 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
 
     }
     
-    PlayerSheet player;
+    public PlayerSheet player;
 
 	void Start ()
     {
@@ -148,5 +148,10 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
             else
                 player.currentMana = player.maxMana;
         }
+    }
+
+    public void Die()
+    {
+
     }
 }

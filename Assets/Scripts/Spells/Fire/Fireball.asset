@@ -15,6 +15,6 @@ MonoBehaviour:
   aSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   aSound: {fileID: 0}
   aBaseCooldown: 1
-  aBaseCastTime: 1
+  aBaseCastTime: 0
   projectileForce: 500
   projRbody: {fileID: 54512103274234150, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}

@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 20
+  duration: 1.5
 --- !u!135 &135554716704520910
 SphereCollider:
   m_ObjectHideFlags: 1

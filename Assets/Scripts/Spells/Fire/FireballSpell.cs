@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FireballSpell : MonoBehaviour
 {
-    public float baseDamage;
+    [SerializeField] float baseDamage;
+    [SerializeField] float duration;
     float spellPower;
     GameObject player;
     PlayerCharacterSheet pSheet;
@@ -15,6 +16,14 @@ public class FireballSpell : MonoBehaviour
         spellPower = player.GetComponent<PlayerCharacterSheet>().player.spellPower;
         pSheet = player.GetComponent<PlayerCharacterSheet>();
 	}
+
+    private void Update()
+    {
+        duration -= Time.deltaTime;
+
+        if(duration <= 0)
+           Destroy(gameObject);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

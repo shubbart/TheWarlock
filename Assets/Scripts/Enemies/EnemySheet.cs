@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySheet : MonoBehaviour, iHeal, iDamageable
 {
@@ -33,24 +34,42 @@ public class EnemySheet : MonoBehaviour, iHeal, iDamageable
     }
 
     public Enemy enemy;
-    EnemyAttributes myAttributes;
+    NavMeshAgent self;
 
+    public bool isSlowed;
+    public float slowDuration;
+    EnemyAttributes myAttributes;
+    float originalSpeed;
     void Start()
     {
         // Construct the enemy sheet
         enemy = new Enemy();
+        self = GetComponent<NavMeshAgent>();
+
         // Retrieves attributes from script
         myAttributes = GetComponent<EnemyAttributes>();
 
         SetAttributes();
         CompileEnemy();
         CheckAttributes();
+
+        originalSpeed = self.speed;
     }
 
     void Update()
     {
         if (enemy.currentHealth <= 0)
             Die();
+
+        if(isSlowed)
+        {
+            slowDuration -= Time.deltaTime;
+            if(slowDuration <= 0)
+            {
+                self.speed = originalSpeed;
+                isSlowed = false;
+            }
+        }
     }
 
     // Sets the attributes from the script inputs

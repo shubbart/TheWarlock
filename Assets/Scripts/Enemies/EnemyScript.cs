@@ -7,7 +7,7 @@ public class EnemyScript : MonoBehaviour
 {
 
     public float normalSpeed;
-    public float chasingSpeed;
+    //public float chasingSpeed;
 
     NavMeshAgent agent;
     Collider coll;
@@ -40,7 +40,7 @@ public class EnemyScript : MonoBehaviour
             if (playerDetected)
             {
                 agent.destination = primaryPlayer;
-                agent.speed = chasingSpeed;
+                //agent.speed = chasingSpeed;
             }
             else
             {

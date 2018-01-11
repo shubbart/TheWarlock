@@ -1126,53 +1126,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284557343}
---- !u!1001 &296590361
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 967.36115
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 292.40668
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -311.71527
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748599751528424, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114204678643166758, guid: 004c760e83ed48940875c8ee082a0b8f,
-        type: 2}
-      propertyPath: duration
-      value: 1.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 004c760e83ed48940875c8ee082a0b8f, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &304859408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,7 +1761,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalSpeed: 3
-  chasingSpeed: 5
   target: {x: 0, y: 0, z: 0}
   primaryPlayer: {x: 0, y: 0, z: 0}
   minX: -20
@@ -1850,6 +1802,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09f8469f1336774ab4a1628442d3675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSlowed: 0
+  slowDuration: 0
 --- !u!114 &509256550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,8 +3114,8 @@ MonoBehaviour:
   abilityButtonAxisName: Spell2
   darkMask: {fileID: 2096247196}
   cdTextDisplay: {fileID: 736168629}
-  ability: {fileID: 0}
-  abilityHolder: {fileID: 0}
+  ability: {fileID: 11400000, guid: 8f05c48c1e5032a43b1ccdde0e144a2f, type: 2}
+  abilityHolder: {fileID: 144337228}
 --- !u!82 &946560970
 AudioSource:
   m_ObjectHideFlags: 0

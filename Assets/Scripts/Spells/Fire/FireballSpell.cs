@@ -8,13 +8,11 @@ public class FireballSpell : MonoBehaviour
     [SerializeField] float duration;
     float spellPower;
     GameObject player;
-    PlayerCharacterSheet pSheet;
 
 	void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         spellPower = player.GetComponent<PlayerCharacterSheet>().player.spellPower;
-        pSheet = player.GetComponent<PlayerCharacterSheet>();
 	}
 
     private void Update()

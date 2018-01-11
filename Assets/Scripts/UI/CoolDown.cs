@@ -9,7 +9,7 @@ public class CoolDown : MonoBehaviour
     public Image darkMask;
     public Text cdTextDisplay;
 
-    [SerializeField] private Ability ability;
+    public Ability ability;
     [SerializeField] private GameObject abilityHolder;
 
     private Image myButtonImage;

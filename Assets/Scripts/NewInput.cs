@@ -42,7 +42,7 @@ public class NewInput : MonoBehaviour
             foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
             {
                 // Only proceeds if a key is pressed
-                if (Input.GetKeyDown(kcode))
+                if (Input.GetKeyDown(kcode) && kcode != KeyCode.Escape)
                 {
                     for(int i = 0; i < GameInputManager.defaults.Length; ++i)
                     {

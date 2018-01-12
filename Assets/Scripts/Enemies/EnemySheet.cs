@@ -35,11 +35,12 @@ public class EnemySheet : MonoBehaviour, iHeal, iDamageable
 
     public Enemy enemy;
     NavMeshAgent self;
+    EnemyAttributes myAttributes;
 
     public bool isSlowed;
     public float slowDuration;
-    EnemyAttributes myAttributes;
     float originalSpeed;
+
     void Start()
     {
         // Construct the enemy sheet

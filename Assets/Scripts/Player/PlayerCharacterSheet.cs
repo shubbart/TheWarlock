@@ -35,7 +35,11 @@ public class PlayerCharacterSheet : MonoBehaviour, iHeal, iDamageable
     
     public PlayerSheet player;
 
-	void Start ()
+    public bool isSlowed;
+    public float slowDuration;
+    float originalSpeed;
+
+    void Start ()
     {
         // Calculate modifiers based on Attributes
         player.strMod = (player.Str - 10) / 2;

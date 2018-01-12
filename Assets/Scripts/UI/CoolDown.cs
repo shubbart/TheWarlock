@@ -43,7 +43,7 @@ public class CoolDown : MonoBehaviour
     void Update ()
     {
         bool cdComplete = (Time.time > nextReadyTime);
-        if (cdComplete)
+        if (cdComplete && Time.timeScale > 0)
         {
             AbilityReady();
             if (GameInputManager.GetKeyDown(abilityButtonAxisName))

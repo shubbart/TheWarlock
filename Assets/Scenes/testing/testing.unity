@@ -2091,8 +2091,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewWeapon2
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenFirebook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3362,8 +3362,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewSpell1
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenNecromancybook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4975,7 +4975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5790,7 +5790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0.015466513, g: 0.44852942, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5888,7 +5888,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseFrostbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6160,7 +6160,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseEarthbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6738,8 +6738,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewWeapon1
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenHealingbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7551,7 +7551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0.071763515, g: 0.16911763, b: 0.004974053, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9093,8 +9093,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewWeapon1
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenEarthbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9485,8 +9485,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewWeapon1
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenShadowbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9608,7 +9608,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseShadowbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9999,8 +9999,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewWeapon2
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenLightningbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10187,7 +10187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 1, g: 0.95537525, b: 0.7058823, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11878,7 +11878,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseLightningbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11979,7 +11979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0.6544118, g: 0.6853955, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -12077,7 +12077,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseFirebook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13666,7 +13666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0, g: 0.9092798, b: 0.9485294, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14073,7 +14073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0.8170892, g: 0.9044118, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14670,8 +14670,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewSpell1
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenFrostbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15308,7 +15308,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseSummoningbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17006,7 +17006,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 110376978}
-  spellBook: {fileID: 1449066802}
+  spellbook: {fileID: 1449066802}
+  earthbook: {fileID: 468278686}
+  firebook: {fileID: 1600012471}
+  frostbook: {fileID: 1189047199}
+  healingbook: {fileID: 828699238}
+  lightningbook: {fileID: 1201156603}
+  necromancybook: {fileID: 595816327}
+  shadowbook: {fileID: 371833059}
+  summoningbook: {fileID: 1008630520}
   hotkeys: {fileID: 1980442723}
   defaultCursor: {fileID: 2800000, guid: c4e3f7db89991a4489f567dee4bbe39f, type: 3}
 --- !u!1 &1510900673
@@ -18058,7 +18066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12162933, g: 0.011353802, b: 0.25735295, a: 0.5882353}
+  m_Color: {r: 0.5661765, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18352,7 +18360,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseHealingbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19571,7 +19579,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1510208518}
-        m_MethodName: CloseSpellbookMenu
+        m_MethodName: CloseNecromancybook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24584,8 +24592,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NewSpell1
+      - m_Target: {fileID: 1510208518}
+        m_MethodName: OpenSummoningbook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

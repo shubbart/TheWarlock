@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54329921950290222}
   - component: {fileID: 114351601861141736}
   m_Layer: 0
-  m_Name: FrostboltPrefab
+  m_Name: IceshardPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

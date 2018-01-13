@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FrostboltSpell : MonoBehaviour
+public class IceshardSpell : MonoBehaviour
 {
     [SerializeField] float baseDamage;
     [SerializeField] float duration;

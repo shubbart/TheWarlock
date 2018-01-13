@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6effc80a7bf82b94b80ad97ab356f245, type: 3}
-  m_Name: Frostbolt
+  m_Name: Iceshard
   m_EditorClassIdentifier: 
   aName: Frostbolt
-  aSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  aSprite: {fileID: 21300000, guid: 063e33e523706f948b859d99ffb63ea8, type: 3}
   aSound: {fileID: 0}
   aBaseCooldown: 2.5
   aBaseCastTime: 1

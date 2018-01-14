@@ -205,6 +205,6 @@ public class EnemySheet : MonoBehaviour, iHeal, iDamageable
 
     public void Die()
     {
-        Debug.Log(enemy.name + " has died!");
+        Destroy(gameObject);
     }
 }

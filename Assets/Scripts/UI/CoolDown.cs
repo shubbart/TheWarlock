@@ -10,7 +10,7 @@ public class CoolDown : MonoBehaviour
     public Text cdTextDisplay;
 
     public Ability ability;
-    [SerializeField] private GameObject abilityHolder;
+    public GameObject abilityHolder;
 
     private Image myButtonImage;
     private AudioSource abilitySource;

@@ -11,7 +11,6 @@ public class SpellDrop : MonoBehaviour, IDropHandler
     {
  
         GetComponent<CoolDown>().ability = SpellDrag.spellBeingDragged.GetComponent<SpellDrag>().spell;
-
-        GetComponent<Image>().sprite = GetComponent<CoolDown>().ability.aSprite;
+        GetComponent<CoolDown>().Initialize(GetComponent<CoolDown>().ability, GetComponent<CoolDown>().abilityHolder);
     }
 }

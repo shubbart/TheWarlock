@@ -22,6 +22,8 @@ public class SpellDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         spellBeingDragged = gameObject;
         startPosition = transform.position;
         startParent = transform.parent;
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+        GetComponent<Image>().raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -34,5 +36,7 @@ public class SpellDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         spellBeingDragged = null;
 
         transform.position = startPosition;
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        GetComponent<Image>().raycastTarget = true;
     }
 }

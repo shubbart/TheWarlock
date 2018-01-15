@@ -52,7 +52,7 @@ public class EnemySheet : MonoBehaviour, iHeal, iDamageable
 
         SetAttributes();
         CompileEnemy();
-        CheckAttributes();
+        //CheckAttributes();
 
         originalSpeed = self.speed;
     }

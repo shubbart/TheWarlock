@@ -21,9 +21,11 @@ public class CoolDown : MonoBehaviour
     private float castDuration;
     private float castRemaining;
 
+    GameObject player;
 
     void Start ()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         Initialize(ability, abilityHolder);
 	}
 
@@ -49,6 +51,8 @@ public class CoolDown : MonoBehaviour
             if (GameInputManager.GetKeyDown(abilityButtonAxisName))
             {
                 CastAbility();
+                if (castDuration > 0)
+                    player.GetComponent<PlayerController>().isCasting = true;
                 Invoke("ButtonTriggered", castDuration);
             }
         }
@@ -87,5 +91,6 @@ public class CoolDown : MonoBehaviour
         abilitySource.clip = ability.aSound;
         abilitySource.Play();
         ability.TriggerAbility();
+        player.GetComponent<PlayerController>().isCasting = false;
     }
 }

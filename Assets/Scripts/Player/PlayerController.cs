@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     int floorMask;
     float camRayLength = 100f;
 
+    public bool isCasting;
+
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
@@ -26,7 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        Move(h,v);
+        if(!isCasting)
+            Move(h,v);
         Jump();
         resetJump();
         Rotate();

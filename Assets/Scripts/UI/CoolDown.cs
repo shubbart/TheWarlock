@@ -23,9 +23,13 @@ public class CoolDown : MonoBehaviour
 
     GameObject player;
 
+    // Temporary animator placement
+    Animator anim;
+
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        anim = player.GetComponent<Animator>(); // To be removed later
         Initialize(ability, abilityHolder);
 	}
 
@@ -67,6 +71,7 @@ public class CoolDown : MonoBehaviour
 
     private void CDUpdate()
     {
+        anim.SetBool("shortCast", false); // To be removed later
         cdRemaining -= Time.deltaTime;
         float roundedCD = Mathf.Round(cdRemaining);
         cdTextDisplay.text = roundedCD.ToString();
@@ -83,6 +88,7 @@ public class CoolDown : MonoBehaviour
 
     private void ButtonTriggered()
     {
+        anim.SetBool("shortCast", true); // To be removed later
         castRemaining = castDuration;
         nextReadyTime = cdDuration + Time.time;
         cdRemaining = cdDuration;

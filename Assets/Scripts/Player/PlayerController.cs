@@ -30,18 +30,20 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         if(!isCasting)
             Move(h,v);
+        if(isCasting)
+            anim.SetBool("isRunning", false);
         Jump();
-        resetJump();
         Rotate();
-
-        anim.SetBool("IsWalking", rbody.velocity.magnitude > 0.1f);
-
     }
 
     void Move(float h, float v)
     {
         // Set the movement vector based on the axis input.
         movement.Set(h, 0f, v);
+        if(h != 0 || v != 0)
+            anim.SetBool("isRunning", true);
+        else
+            anim.SetBool("isRunning", false);
 
         // Normalise the movement vector and make it proportional to the speed per second.
         movement = movement.normalized * speed * Time.deltaTime;
@@ -52,18 +54,14 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (!isJumping)
+        RaycastHit floorHit;
+        if (Physics.Raycast(transform.position, -transform.up, out floorHit, 1f, floorMask))
         {
             rbody.AddForce(transform.up * jumpForce * Input.GetAxis("Jump"), ForceMode.Impulse);
-            isJumping = true;
         }
     }
 
-    void resetJump()
-    {
-        if (rbody.velocity.y == 0)
-            isJumping = false;
-    }
+
 
     void Rotate()
     {

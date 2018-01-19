@@ -22,14 +22,15 @@ public class CoolDown : MonoBehaviour
     private float castRemaining;
 
     GameObject player;
+    PlayerController pController;
 
-    // Temporary animator placement
     Animator anim;
 
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        anim = player.GetComponent<Animator>(); // To be removed later
+        pController = player.GetComponent<PlayerController>();
+        anim = player.GetComponent<Animator>();
         Initialize(ability, abilityHolder);
 	}
 
@@ -49,15 +50,25 @@ public class CoolDown : MonoBehaviour
     void Update ()
     {
         bool cdComplete = (Time.time > nextReadyTime);
-        if (cdComplete && Time.timeScale > 0)
+        if (cdComplete && Time.timeScale > 0)// && !pController.isCasting)
         {
             AbilityReady();
             if (GameInputManager.GetKeyDown(abilityButtonAxisName))
             {
-                CastAbility();
+                CastAbility(); // Visual indication of cast time
                 if (castDuration > 0)
-                    player.GetComponent<PlayerController>().isCasting = true;
-                Invoke("ButtonTriggered", castDuration);
+                {
+                    pController.longCasting = true;
+                    pController.isCasting = true;
+                    pController.activeSlot = gameObject;
+                    anim.SetBool("longCast", true);
+                }
+                else
+                {
+                    pController.isCasting = true;
+                    anim.SetBool("shortCast", true);
+                    pController.activeSlot = gameObject;
+                }
             }
         }
         else CDUpdate();
@@ -71,7 +82,8 @@ public class CoolDown : MonoBehaviour
 
     private void CDUpdate()
     {
-        anim.SetBool("shortCast", false); // To be removed later
+        anim.SetBool("shortCast", false);
+        anim.SetBool("longCast", false);
         cdRemaining -= Time.deltaTime;
         float roundedCD = Mathf.Round(cdRemaining);
         cdTextDisplay.text = roundedCD.ToString();
@@ -86,9 +98,8 @@ public class CoolDown : MonoBehaviour
         // mask update
     }
 
-    private void ButtonTriggered()
+    public void ButtonTriggered()
     {
-        anim.SetBool("shortCast", true); // To be removed later
         castRemaining = castDuration;
         nextReadyTime = cdDuration + Time.time;
         cdRemaining = cdDuration;
@@ -97,6 +108,7 @@ public class CoolDown : MonoBehaviour
         abilitySource.clip = ability.aSound;
         abilitySource.Play();
         ability.TriggerAbility();
-        player.GetComponent<PlayerController>().isCasting = false;
+        pController.isCasting = false;
+        pController.longCasting = false;
     }
 }

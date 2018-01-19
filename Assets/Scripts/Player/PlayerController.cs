@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     float camRayLength = 100f;
 
     public bool isCasting;
+    public bool longCasting;
+
+    public GameObject activeSlot;
 
     void Start()
     {
@@ -28,9 +31,9 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        if(!isCasting)
+        if(!longCasting)
             Move(h,v);
-        if(isCasting)
+        if(longCasting)
             anim.SetBool("isRunning", false);
         Jump();
         Rotate();

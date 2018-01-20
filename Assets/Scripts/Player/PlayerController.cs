@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 
     Vector3 movement;
+    Quaternion newRotation;
     int floorMask;
     float camRayLength = 100f;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
             Move(h,v);
         if(longCasting)
             anim.SetBool("isRunning", false);
+        GetFacing();
         Jump();
         Rotate();
     }
@@ -48,11 +50,24 @@ public class PlayerController : MonoBehaviour
         else
             anim.SetBool("isRunning", false);
 
-        // Normalise the movement vector and make it proportional to the speed per second.
+        // Normalize the movement vector and make it proportional to the speed per second.
         movement = movement.normalized * speed * Time.deltaTime;
 
         // Move the player to it's current position plus the movement.
         rbody.MovePosition(transform.position + movement);
+    }
+
+    void GetFacing()
+    {
+        float dirAngleX = Mathf.DeltaAngle(newRotation.x, movement.x);
+        Debug.Log("Angle X: " + dirAngleX);
+        float dirAngleZ = Mathf.DeltaAngle(newRotation.z, movement.z);
+        Debug.Log("Angle Z: " + dirAngleZ);
+
+        if(movement.z != 0)
+            anim.SetFloat("Direction", dirAngleZ);
+        if(movement.x != 0)
+            anim.SetFloat("Direction", dirAngleX);
     }
 
     void Jump()
@@ -80,10 +95,10 @@ public class PlayerController : MonoBehaviour
             playerToMouse.y = 0f;
 
             // Create a quaternion (rotation) based on looking down the vector from the player to the mouse.
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+            newRotation = Quaternion.LookRotation(playerToMouse);
 
             // Set the player's rotation to this new rotation.
-            rbody.MoveRotation(newRotation);
+            rbody.MoveRotation(newRotation);           
         }
     }
 }

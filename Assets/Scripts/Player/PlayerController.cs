@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 
     Vector3 movement;
+    Vector3 direction;
     Quaternion newRotation;
+    Vector3 playerToMouse;
     int floorMask;
     float camRayLength = 100f;
 
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         // Set the movement vector based on the axis input.
         movement.Set(h, 0f, v);
+        //direction.Set(h, 0f, v);
         if(h != 0 || v != 0)
             anim.SetBool("isRunning", true);
         else
@@ -59,15 +62,8 @@ public class PlayerController : MonoBehaviour
 
     void GetFacing()
     {
-        float dirAngleX = Mathf.DeltaAngle(newRotation.x, movement.x);
-        Debug.Log("Angle X: " + dirAngleX);
-        float dirAngleZ = Mathf.DeltaAngle(newRotation.z, movement.z);
-        Debug.Log("Angle Z: " + dirAngleZ);
-
-        if(movement.z != 0)
-            anim.SetFloat("Direction", dirAngleZ);
-        if(movement.x != 0)
-            anim.SetFloat("Direction", dirAngleX);
+        float angle = Vector3.Angle(movement, transform.forward);
+        anim.SetFloat("Direction", angle);
     }
 
     void Jump()
@@ -89,7 +85,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
         {
             // Create a vector from the player to the point on the floor the raycast from the mouse hit.
-            Vector3 playerToMouse = floorHit.point - transform.position;
+            playerToMouse = floorHit.point - transform.position;
 
             // Ensure the vector is entirely along the floor plane.
             playerToMouse.y = 0f;
@@ -98,7 +94,7 @@ public class PlayerController : MonoBehaviour
             newRotation = Quaternion.LookRotation(playerToMouse);
 
             // Set the player's rotation to this new rotation.
-            rbody.MoveRotation(newRotation);           
+            rbody.MoveRotation(newRotation);
         }
     }
 }

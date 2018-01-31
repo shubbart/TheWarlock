@@ -63,7 +63,13 @@ public class PlayerController : MonoBehaviour
     void GetFacing()
     {
         float angle = Vector3.Angle(movement, transform.forward);
+        Vector3 cross = Vector3.Cross(movement, transform.forward);
+
+        if (cross.y < 0)
+            angle = -angle;
+
         anim.SetFloat("Direction", angle);
+        Debug.Log(angle);
     }
 
     void Jump()

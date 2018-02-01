@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if(longCasting)
             anim.SetBool("isRunning", false);
         GetFacing();
-        Jump();
+        //Jump();
         Rotate();
     }
 

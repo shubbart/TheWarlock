@@ -69,17 +69,23 @@ public class PlayerController : MonoBehaviour
             angle = -angle;
 
         anim.SetFloat("Direction", angle);
-        Debug.Log(angle);
     }
 
-    void Jump()
-    {
-        RaycastHit floorHit;
-        if (Physics.Raycast(transform.position, -transform.up, out floorHit, 1f, floorMask))
-        {
-            rbody.AddForce(transform.up * jumpForce * Input.GetAxis("Jump"), ForceMode.Impulse);
-        }
-    }
+    //void Jump()
+    //{
+    //    RaycastHit floorHit;
+    //    if (Physics.Raycast(transform.position, -transform.up, out floorHit, 1f, floorMask))
+    //    {
+    //        rbody.AddForce(transform.up * jumpForce * Input.GetAxis("Jump"), ForceMode.Impulse);
+            
+    //    }
+    //    if (rbody.velocity.y > 0)
+    //        anim.SetBool("isJumping", true);
+    //    else
+    //        anim.SetBool("isJumping", false);
+
+    //    Debug.Log(rbody.velocity.y);
+    //}
 
 
 

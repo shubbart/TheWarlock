@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float normalSpeed;
+    float speed, backSpeed;
     public float jumpForce;
     bool isJumping;
     bool isAttacking;
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
         rbody = GetComponent<Rigidbody>();
         floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent<Animator>();
+        speed = normalSpeed;
+        backSpeed = normalSpeed / 2;
     }
 
     void Update()
@@ -67,6 +70,11 @@ public class PlayerController : MonoBehaviour
 
         if (cross.y < 0)
             angle = -angle;
+
+        if (angle > 90 || angle < -90)
+            speed = backSpeed;
+        else
+            speed = normalSpeed;
 
         anim.SetFloat("Direction", angle);
     }

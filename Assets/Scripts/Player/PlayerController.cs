@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float normalSpeed;
-    float speed, backSpeed;
+    public float speed;
+    float speedModifier = 1;
     public float jumpForce;
     bool isJumping;
     bool isAttacking;
@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
         rbody = GetComponent<Rigidbody>();
         floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent<Animator>();
-        speed = normalSpeed;
-        backSpeed = normalSpeed / 2;
     }
 
     void Update()
@@ -57,7 +55,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isRunning", false);
 
         // Normalize the movement vector and make it proportional to the speed per second.
-        movement = movement.normalized * speed * Time.deltaTime;
+        movement = movement.normalized * speed * speedModifier * Time.deltaTime;
 
         // Move the player to it's current position plus the movement.
         rbody.MovePosition(transform.position + movement);
@@ -72,9 +70,9 @@ public class PlayerController : MonoBehaviour
             angle = -angle;
 
         if (angle > 90 || angle < -90)
-            speed = backSpeed;
+            speedModifier = .5f;
         else
-            speed = normalSpeed;
+            speedModifier = 1;
 
         anim.SetFloat("Direction", angle);
     }

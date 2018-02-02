@@ -20,6 +20,7 @@ public class CoolDown : MonoBehaviour
 
     private float castDuration;
     private float castRemaining;
+    private bool selfCast;
 
     GameObject player;
     PlayerController pController;
@@ -43,6 +44,7 @@ public class CoolDown : MonoBehaviour
         darkMask.sprite = ability.aSprite;
         cdDuration = ability.aBaseCooldown;
         castDuration = ability.aBaseCastTime;
+        selfCast = ability.selfCast;
         ability.Initialize(abilityHolder);
         AbilityReady();
     }
@@ -62,11 +64,13 @@ public class CoolDown : MonoBehaviour
                     pController.isCasting = true;
                     pController.activeSlot = gameObject;
                     anim.SetBool("longCast", true);
+                    anim.SetBool("selfCast", selfCast);
                 }
                 else
                 {
                     pController.isCasting = true;
                     anim.SetBool("shortCast", true);
+                    anim.SetBool("selfCast", selfCast);
                     pController.activeSlot = gameObject;
                 }
             }
@@ -82,8 +86,7 @@ public class CoolDown : MonoBehaviour
 
     private void CDUpdate()
     {
-        anim.SetBool("shortCast", false);
-        anim.SetBool("longCast", false);
+
         cdRemaining -= Time.deltaTime;
         float roundedCD = Mathf.Round(cdRemaining);
         cdTextDisplay.text = roundedCD.ToString();
@@ -110,5 +113,8 @@ public class CoolDown : MonoBehaviour
         ability.TriggerAbility();
         pController.isCasting = false;
         pController.longCasting = false;
+        anim.SetBool("shortCast", false);
+        anim.SetBool("longCast", false);
+        anim.SetBool("selfCast", false);
     }
 }

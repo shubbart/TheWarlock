@@ -16,4 +16,5 @@ MonoBehaviour:
   aSound: {fileID: 0}
   aBaseCooldown: 5
   aBaseCastTime: 0
+  selfCast: 1
   spell: {fileID: 1893823072774524, guid: 2f331a82a4ac5134e86e40b0ca3fc85e, type: 2}

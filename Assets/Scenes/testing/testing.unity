@@ -10583,7 +10583,7 @@ GameObject:
   - component: {fileID: 1512398128}
   - component: {fileID: 1512398127}
   m_Layer: 5
-  m_Name: Fireball
+  m_Name: Shadowbolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10629,7 +10629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a8cfc5624a04740a8c791a38a7faa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: d7910539a3c10a342b84f47f3d4d28a9, type: 2}
+  spell: {fileID: 11400000, guid: 35e0b18f2b56c2649b5ab0ec077bc98b, type: 2}
 --- !u!114 &1512398129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11960,7 +11960,7 @@ GameObject:
   - component: {fileID: 1774090462}
   - component: {fileID: 1774090461}
   m_Layer: 5
-  m_Name: Spell
+  m_Name: RockBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12006,7 +12006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a8cfc5624a04740a8c791a38a7faa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: d7910539a3c10a342b84f47f3d4d28a9, type: 2}
+  spell: {fileID: 11400000, guid: e520b51de83fd99469f5b115ddac46de, type: 2}
 --- !u!114 &1774090463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12960,7 +12960,7 @@ GameObject:
   - component: {fileID: 1856930608}
   - component: {fileID: 1856930607}
   m_Layer: 2
-  m_Name: FireballAfterImage
+  m_Name: AfterImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13015,7 +13015,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6eba2fde425ea5842b27b5357148211b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39613d1d29277cf4e958e9fde5c35ed2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15003,7 +15003,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6eba2fde425ea5842b27b5357148211b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd1a2e01c76241847a7a697683ca8a38, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

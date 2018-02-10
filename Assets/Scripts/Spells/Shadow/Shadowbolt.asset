@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6effc80a7bf82b94b80ad97ab356f245, type: 3}
+  m_Name: Shadowbolt
+  m_EditorClassIdentifier: 
+  aName: Shadowbolt
+  aSprite: {fileID: 21300000, guid: 39613d1d29277cf4e958e9fde5c35ed2, type: 3}
+  aSound: {fileID: 0}
+  aBaseCooldown: 1
+  aBaseCastTime: 1
+  selfCast: 0
+  projectileForce: 500
+  projRbody: {fileID: 54904379933090406, guid: 2b951300ceeb95041b0dfb41e2d8c06b, type: 2}

@@ -200,7 +200,7 @@ MonoBehaviour:
   abilityButtonAxisName: Spell1
   darkMask: {fileID: 1654631396}
   cdTextDisplay: {fileID: 706402489}
-  ability: {fileID: 11400000, guid: d7910539a3c10a342b84f47f3d4d28a9, type: 2}
+  ability: {fileID: 11400000, guid: e520b51de83fd99469f5b115ddac46de, type: 2}
   abilityHolder: {fileID: 220562209}
 --- !u!82 &7268064
 AudioSource:
@@ -1609,6 +1609,11 @@ Prefab:
     - target: {fileID: 4840386608935622, guid: 508681685952b184ba9e10d1b12edfd6, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963635288599886, guid: 508681685952b184ba9e10d1b12edfd6,
+        type: 2}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 508681685952b184ba9e10d1b12edfd6, type: 2}
@@ -6937,7 +6942,7 @@ MonoBehaviour:
   abilityButtonAxisName: Spell2
   darkMask: {fileID: 2096247196}
   cdTextDisplay: {fileID: 736168629}
-  ability: {fileID: 11400000, guid: 8f05c48c1e5032a43b1ccdde0e144a2f, type: 2}
+  ability: {fileID: 11400000, guid: d7910539a3c10a342b84f47f3d4d28a9, type: 2}
   abilityHolder: {fileID: 1842579587}
 --- !u!82 &946560970
 AudioSource:
@@ -7765,7 +7770,7 @@ MonoBehaviour:
   abilityButtonAxisName: Spell3
   darkMask: {fileID: 705285490}
   cdTextDisplay: {fileID: 1902794548}
-  ability: {fileID: 11400000, guid: 0f41a123f86d2a843af55cee91e24393, type: 2}
+  ability: {fileID: 11400000, guid: 8f05c48c1e5032a43b1ccdde0e144a2f, type: 2}
   abilityHolder: {fileID: 1301276332}
 --- !u!82 &1110913858
 AudioSource:
@@ -12473,7 +12478,7 @@ MonoBehaviour:
   abilityButtonAxisName: Spell4
   darkMask: {fileID: 188059390}
   cdTextDisplay: {fileID: 2088257928}
-  ability: {fileID: 0}
+  ability: {fileID: 11400000, guid: 0f41a123f86d2a843af55cee91e24393, type: 2}
   abilityHolder: {fileID: 2036940700}
 --- !u!82 &1825739615
 AudioSource:

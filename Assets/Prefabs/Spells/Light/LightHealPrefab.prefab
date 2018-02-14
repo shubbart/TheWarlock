@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114259606330403664}
   - component: {fileID: 114849380384747978}
   m_Layer: 0
-  m_Name: Heal
+  m_Name: LightHealPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,6 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHeal: 10
   offset: {x: 0, y: 2.5, z: 0}
+  spellPower: 0
+  player: {fileID: 0}
 --- !u!198 &198340632025091390
 ParticleSystem:
   m_ObjectHideFlags: 1

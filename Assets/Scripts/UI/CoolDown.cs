@@ -21,9 +21,13 @@ public class CoolDown : MonoBehaviour
     private float castDuration;
     private float castRemaining;
     private bool selfCast;
+    private bool targetSpell;
+    private bool targetEnemy;
+
 
     GameObject player;
     PlayerController pController;
+    TargetSelect playerTargeting;
 
     Animator anim;
 
@@ -31,6 +35,7 @@ public class CoolDown : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         pController = player.GetComponent<PlayerController>();
+        playerTargeting = player.GetComponent<TargetSelect>();
         anim = player.GetComponent<Animator>();
         Initialize(ability, abilityHolder);
 	}
@@ -45,6 +50,8 @@ public class CoolDown : MonoBehaviour
         cdDuration = ability.aBaseCooldown;
         castDuration = ability.aBaseCastTime;
         selfCast = ability.selfCast;
+        targetSpell = ability.targetSpell;
+        targetEnemy = ability.targetEnemy;
         ability.Initialize(abilityHolder);
         AbilityReady();
     }
@@ -57,8 +64,15 @@ public class CoolDown : MonoBehaviour
             AbilityReady();
             if (GameInputManager.GetKeyDown(abilityButtonAxisName))
             {
-                CastAbility(); // Visual indication of cast time
-                if (castDuration > 0)
+                //CastAbility(); // Visual indication of cast time
+                if (targetSpell)
+                {
+                    playerTargeting.targetEnemy = targetEnemy;
+                    playerTargeting.targeting = true;
+
+                    StartCoroutine(Targetting());
+                }
+                else if (castDuration > 0 && !targetSpell)
                 {
                     pController.longCasting = true;
                     pController.isCasting = true;
@@ -66,7 +80,7 @@ public class CoolDown : MonoBehaviour
                     anim.SetBool("longCast", true);
                     anim.SetBool("selfCast", selfCast);
                 }
-                else
+                else if (castDuration == 0 && !targetSpell)
                 {
                     pController.isCasting = true;
                     anim.SetBool("shortCast", true);
@@ -99,6 +113,36 @@ public class CoolDown : MonoBehaviour
         float roundedCast = Mathf.Round(castRemaining);
         // text update
         // mask update
+    }
+
+    IEnumerator Targetting()
+    {
+        playerTargeting.targetEnemy = targetEnemy;
+        playerTargeting.targeting = true;
+        playerTargeting.cancelled = false;
+
+        yield return new WaitUntil(() => playerTargeting.targeting == false);
+
+        if (!playerTargeting.cancelled)
+        {
+            if (castDuration > 0)
+            {
+                pController.longCasting = true;
+                pController.isCasting = true;
+                pController.activeSlot = gameObject;
+                anim.SetBool("longCast", true);
+            }
+            else
+            {
+                pController.isCasting = true;
+                anim.SetBool("shortCast", true);
+                pController.activeSlot = gameObject;
+            }
+        }
+        else
+            Debug.Log("Spell Cancelled");
+
+        StopCoroutine(Targetting());
     }
 
     public void ButtonTriggered()
